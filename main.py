@@ -1,21 +1,21 @@
 from flask import Flask
 
-
+operations = ('+', ':', '**', '-', '*')
 app = Flask(__name__)
 
 
-@app.route('/')
-def index():
-    return 'index'
-
-
-@app.route('/contact/')
-def contact():
-    return 'contact information'
-
-@app.route('/calculate/<a>/<b>/')
-def calculate(a, b):
-    return str(int(a)**int(b))
+@app.route('/<int:a><oper><int:b>/')
+def calculate(a, b, oper):
+    if oper in operations and oper == '+':
+        return str(int(a) + int(b))
+    elif oper in operations and oper == ':':
+        return str(int(a) / int(b))
+    elif oper in operations and oper == '**':
+        return str(int(a) ** int(b))
+    elif oper in operations and oper == '-':
+        return str(int(a) - int(b))
+    elif oper in operations and oper == '*':
+        return str(int(a) * int(b))
 
 
 if __name__ == '__main__':
