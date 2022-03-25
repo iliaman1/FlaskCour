@@ -5,15 +5,10 @@ app = Flask(__name__)
 
 @app.route('/')
 @app.route('/index/')
-def index():
-    return render_template('index.html', name='Ilia', title='Home page')
-
-
 @app.route('/<float:num>/')
-def x2(num):
+def index(num):
     pi = 3.14
-    return render_template('index.html', pi=pi, r=num)
-    # return render_template('index.html', number=f"{float(num)}", text=f"Ваше число {float(num)}, умноженное на 2: {float(num)*2}")
+    return render_template('index.html', name='Ilia', title='Home page', pi=pi, r=num)
 
 
 @app.route('/filters/')
