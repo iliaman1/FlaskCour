@@ -12,7 +12,9 @@ def index():
 
 @app.route('/<float:num>/')
 def x2(num):
-    return render_template('index.html', number=f"{float(num)}", text=f"Ваше число {float(num)}, умноженное на 2: {float(num)*2}")
+    pi = 3.14
+    return render_template('index.html', pi = pi, r = num)
+    # return render_template('index.html', number=f"{float(num)}", text=f"Ваше число {float(num)}, умноженное на 2: {float(num)*2}")
 
 # @app.route('/<int:a><oper><int:b>/')
 # def calculate(a, b, oper):
