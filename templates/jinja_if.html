@@ -29,5 +29,16 @@
 {% else %}
 <p align="center">Ошибка</p>
 {% endif %}
+
+<h2 align="center">Задание: отображение списка</h2>
+
+    {% for item in my_list %}
+        {{ loop.index }} - {{ item }} <br>
+    {% else %}
+    {% if my_list == [] %}
+        <p align="center"> Численная последовательность не существует </p>
+    {% endif %}
+    {% endfor %}
+
 </body>
 </html>

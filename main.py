@@ -12,7 +12,7 @@ def index(num):
 
 
 @app.route('/filters/')
-def tasks():
+def task():
     numbers = (7, 5, 8, 0, 3)
     val = '1.69'
     return render_template('filters.html', val=val, numbers=numbers)
@@ -21,9 +21,10 @@ def tasks():
 @app.route('/sintif/')
 @app.route('/<float:a>/<oper>/<float:b>/')
 def sintask(a, oper, b):
+    my_list = []
     operations = ('+', ':', '**', '-', '*')
     a1, b1, c1 = 1, 2, 3
-    return render_template('jinja_if.html', a=a, oper=oper, b=b, operations=operations, a1=a1, b1=b1, c1=c1)
+    return render_template('jinja_if.html', a=a, oper=oper, b=b, operations=operations, a1=a1, b1=b1, c1=c1, my_list = my_list)
 
 
 
