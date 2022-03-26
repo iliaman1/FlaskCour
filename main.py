@@ -21,10 +21,11 @@ def task():
 @app.route('/sintif/')
 @app.route('/<float:a>/<oper>/<float:b>/')
 def sintask(a, oper, b):
+    numbers = {'string': 0, 'f2': 1, '15': 6, 'g3': -8, '19': 19, 'b2c5f': 11, '09': 90}
     my_list = []
     operations = ('+', ':', '**', '-', '*')
     a1, b1, c1 = 1, 2, 3
-    return render_template('jinja_if.html', a=a, oper=oper, b=b, operations=operations, a1=a1, b1=b1, c1=c1, my_list = my_list)
+    return render_template('jinja_if.html', a=a, oper=oper, b=b, operations=operations, a1=a1, b1=b1, c1=c1, my_list = my_list, numbers = numbers)
 
 
 

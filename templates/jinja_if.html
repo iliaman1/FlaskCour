@@ -40,5 +40,16 @@
     {% endif %}
     {% endfor %}
 
+<h2 align="center">Задание: циклы и условия</h2>
+    {% for key, value in numbers.items() %}
+        {% if key.isdigit() and key|int <= value %}
+<p align="center">{{key.strip("0")}}</p>
+        {% elif key.isdigit() and key|int > value %}
+<p align="center">{{value}}</p>
+        {% endif %}
+
+    {% endfor %}
+
+
 </body>
 </html>
