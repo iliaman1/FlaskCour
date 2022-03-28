@@ -18,6 +18,11 @@ def task():
     return render_template('filters.html', val=val, numbers=numbers)
 
 
+@app.route('/test/')
+def test():
+    return render_template('test.html', )
+
+
 @app.route('/jinco/')
 @app.route('/<float:a>/<oper>/<float:b>/')
 def sintask(a, oper, b):
@@ -30,9 +35,9 @@ def sintask(a, oper, b):
     title = 'Обучение'
     varargs = [1, 10, 100, 1000, 10000, ]
     kwargs = {'11111': 'm', '10': 'o', '1': 'r', '111': 'i', '666': 'e', }
-    return render_template('jinja_static_constructions.html', varargs=varargs, kwargs=kwargs, email=email, message=message, title=title, a=a, oper=oper, b=b, operations=operations, a1=a1, b1=b1, c1=c1, my_list = my_list, numbers = numbers)
-
-
+    return render_template('jinja_static_constructions.html', varargs=varargs, kwargs=kwargs, email=email,
+                           message=message, title=title, a=a, oper=oper, b=b, operations=operations, a1=a1, b1=b1,
+                           c1=c1, my_list=my_list, numbers=numbers)
 
 
 # @app.route('/<float:a>/<oper>/<float:b>/')

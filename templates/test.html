@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h1>Test</h1>
+{% from "macros.html" import get_args %}
+{{ get_args(1, 2, 3) }}
+</body>
+</html>
