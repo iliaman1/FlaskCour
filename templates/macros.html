@@ -5,10 +5,11 @@
     <title>macrosiki</title>
 </head>
 <body>
-{% macro get_sum() %}
+{% macro get_args() %}
     <p>varargs: {{ varargs }}</p>
     <p>kwargs: {{ kwargs }}</p>
 {% endmacro %}
+
 
 {% macro post_email(email, message, title='Без темы') %}
     {% if '@' not in email %}
@@ -16,6 +17,18 @@
     {% else %}
     <p>Сообщение '{{ message }}' для адресата '{{ email }}' отправлено с темой '{{ title }}'</p>
     {% endif %}
+{% endmacro %}
+
+
+{% macro get_solution() %}
+{% set x = varargs[0] %}
+{% set a = varargs[1] %}
+{% for i in range(x|length) %}
+{% if x|sum|string in a %}
+{{ a[x|sum|string] }}
+{% endif %}
+{% set x = x.pop() %}
+{% endfor %}
 {% endmacro %}
 </body>
 </html>

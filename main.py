@@ -28,7 +28,9 @@ def sintask(a, oper, b):
     email = 'popov@gmail.com'
     message = 'Flask - это прекрасно!'
     title = 'Обучение'
-    return render_template('jinja_static_constructions.html', email=email, message=message, title=title, a=a, oper=oper, b=b, operations=operations, a1=a1, b1=b1, c1=c1, my_list = my_list, numbers = numbers)
+    varargs = [1, 10, 100, 1000, 10000, ]
+    kwargs = {'11111': 'm', '10': 'o', '1': 'r', '111': 'i', '666': 'e', }
+    return render_template('jinja_static_constructions.html', varargs=varargs, kwargs=kwargs, email=email, message=message, title=title, a=a, oper=oper, b=b, operations=operations, a1=a1, b1=b1, c1=c1, my_list = my_list, numbers = numbers)
 
 
 
