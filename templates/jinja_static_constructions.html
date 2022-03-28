@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Синтаксические конструкции Jinja</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<h1 align="center">Синтаксические конструкции Jinja</h1>
-<h2 align="center">Задание: условный оператор</h2>
+{% import "macros.html" as macros %}
+<h1>Синтаксические конструкции Jinja</h1>
+<h2>Задание: условный оператор</h2>
 {% if b1 < a1 < c1 or c1 < a1 < b1 or a1 == b1 or a1 == c1 %}
                   <p align="center">{{ a1 }}</p>
 {% elif a1 < b1 < c1 or c1 < b1 < a1 or b1 == a1 or b1 == c1 %}
@@ -15,40 +17,45 @@
                   <p align="center">{{ c1 }}</p>
 {% endif %}
 
-<h2 align="center">Задание: Jinja калькулятор</h2>
+<h2>Задание: Jinja калькулятор</h2>
 {% if oper in operations and oper == '+' %}
-<p align="center">{{ a+b }}</p>
+<p>{{ a+b }}</p>
 {% elif oper in operations and oper == '-' %}
-<p align="center">{{ a-b }}</p>
+<p>{{ a-b }}</p>
 {% elif oper in operations and oper == '*' %}
-<p align="center">{{ a*b }}</p>
+<p>{{ a*b }}</p>
 {% elif oper in operations and oper == ':' and b!=0 %}
-<p align="center">{{ a/b }}</p>
+<p>{{ a/b }}</p>
 {% elif oper in operations and oper == '**' %}
-<p align="center">{{ a**b }}</p>
+<p>{{ a**b }}</p>
 {% else %}
-<p align="center">Ошибка</p>
+<p>Ошибка</p>
 {% endif %}
 
-<h2 align="center">Задание: отображение списка</h2>
+<h2>Задание: отображение списка</h2>
 
     {% for item in my_list %}
         {{ loop.index }} - {{ item }} <br>
     {% else %}
     {% if my_list == [] %}
-        <p align="center"> Численная последовательность не существует </p>
+        <p> Численная последовательность не существует </p>
     {% endif %}
     {% endfor %}
 
-<h2 align="center">Задание: циклы и условия</h2>
+<h2>Задание: циклы и условия</h2>
     {% for key, value in numbers.items() %}
         {% if key.isdigit() and key|int <= value %}
-<p align="center">{{key.strip("0")}}</p>
+<p>{{key.strip("0")}}</p>
         {% elif key.isdigit() and key|int > value %}
-<p align="center">{{value}}</p>
+<p>{{value}}</p>
         {% endif %}
 
     {% endfor %}
+
+<h2>Задание: циклы и условия</h2>
+{{ macros.post_email(email, message, title) }}
+
+<h2>Задание: переменный вывод</h2>
 
 
 </body>

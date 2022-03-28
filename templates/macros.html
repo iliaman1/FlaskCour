@@ -5,6 +5,17 @@
     <title>macrosiki</title>
 </head>
 <body>
+{% macro get_sum() %}
+    <p>varargs: {{ varargs }}</p>
+    <p>kwargs: {{ kwargs }}</p>
+{% endmacro %}
 
+{% macro post_email(email, message, title='Без темы') %}
+    {% if '@' not in email %}
+    <p>E-mail '{{ email }}' некорректный</p>
+    {% else %}
+    <p>Сообщение '{{ message }}' для адресата '{{ email }}' отправлено с темой '{{ title }}'</p>
+    {% endif %}
+{% endmacro %}
 </body>
 </html>
