@@ -4,11 +4,16 @@ app = Flask(__name__)
 
 
 @app.route('/')
-@app.route('/index/')
+@app.route('/index')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/index_old/')
 @app.route('/<float:num>/')
-def index(num):
+def index_old(num):
     pi = 3.14
-    return render_template('index.html', name='Ilia', title='Home page', pi=pi, r=num)
+    return render_template('index_old.html', name='Ilia', title='Home page', pi=pi, r=num)
 
 
 @app.route('/filters/')

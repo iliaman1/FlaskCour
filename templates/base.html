@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>New story</title>
+    <title>{% block title %}Some page{% endblock %}</title>
 </head>
 <body>
-{% extends 'base.html' %}
 
 {% block menu %}
-{{ super() }}
-<li><a href="#">Contact</a> </li>
+<nav>
+    <a href="/">Home</a>
+    <a href="#">About</a>
+</nav>
 {% endblock %}
 
 {% block content %}
-<h1>Home page</h1>
-<p>Hello, Jinja!</p>
-<hr>
+
 {% endblock %}
+
 </body>
 </html>
